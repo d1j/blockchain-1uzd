@@ -9,6 +9,6 @@ using std::cout;
 using std::endl;
 using std::string;
 
-int intInput();
+int intInput(int, int);
 
 #endif

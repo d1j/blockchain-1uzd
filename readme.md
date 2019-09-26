@@ -2,7 +2,16 @@
 ---
 ## v0.1
 ---
-Maišos algoritmas, grįstas MD4 maišos algoritmo veikimo principais.
+***Kompiliuoti naudojant šias komandas:***
+1. Hashinimo funkcija: `g++ -o janhash main.cpp readData.cpp includes.cpp hash.cpp`
+2. Collision testas su hash funkcija: `g++ -o coltest collisiontest.cpp readData.cpp includes.cpp hash.cpp`
+3. Speed test su hash funkcija: `g++ -o speedtest speedtest.cpp readData.cpp includes.cpp hash.cpp`
+4. Overlap testas (`overlap` branch'e): `g++ -o overlaptest overlaptest.cpp readData.cpp includes.cpp hash.cpp`
+
+janhash maišos algoritmas, grįstas MD4 maišos algoritmo veikimo principais.
+
+## janhash veikimo principas
+---
 1. Nuskaitomi duomenys į `string'ą`.
 2. Prie duomenų `string'o`  pridedama tiek `'\0' char'ų`, kad duomenų ilgis būtų lygus 64 kartotiniui (ilgis dalintųsi iš 64 be liekanos).
 3. Prie antro etapo metu gautų duomenų pridedama dar 64 simboliai, kurie sudaryti iš `'\0' char'ų` ir pradinių duomenų ilgio skaičiaus. (Jeigu pradiniai duomenys buvo 12 simbolių ilgio, 3 etapo metu pridedami šie simboliai: "...              12").
@@ -14,7 +23,6 @@ Maišos algoritmas, grįstas MD4 maišos algoritmo veikimo principais.
 ``` c++
 uint32_t F(const uint32_t X, const uint32_t Y, const uint32_t Z)
 {
-	//If X then Y else Z.
 	return (((X) & (Y)) | ((~X) & (Z)));
 }
 
@@ -62,6 +70,7 @@ void HH(uint32_t &a, const uint32_t b, const uint32_t c, const uint32_t d, const
 7. Duomenų manipuliavimo pasekoje išmaišomi keturių žodžių buferiai, kuriuos sudėjus vieną šalia kito, gauname 128 bitų "hash'ą".
 
 ## Analizė
+---
 1. Testiniai įvedimo failų pavyzdžiai:
 	1. Testas (Su skirtingi simboliai)
 		* Failo `./duomenys/simb1.txt` hash'as: **e4e790a0965ef29885db2f3b0d4f3520**
@@ -83,4 +92,24 @@ void HH(uint32_t &a, const uint32_t b, const uint32_t c, const uint32_t d, const
 
 3. Palyginus kiekvieną gautą hashą suhashinus `./duomenys/1mil.txt` failo eilutes, negauta nei viena sutampančių hashų pora.
 
-4. 
+4. Šiam analizės etapui sudarytas `./duomenys/1mil_2.txt` failas, kurio turinys aprašytas žemiau:
+	* 830,584‬ eilučių po 5 simbolius.
+	* Didžioji dalis gretimų eilučių skiriasi tik vienu simboliu.
+    * 94 gretimos eilutės skirsis 3 simboliais.
+    * ~8800 gretimų eilučių skirsis 2 simboliais.
+
+	Testas buvo atliekamas tokiu principu:
+	1. Apskaičiuojami pirmos ir antros eilučių hash'ai.
+	2. Lyginama, kiek bitų skiriais gretimos eilutės.
+	3. Pereinama prie antros ir trečios eilutės.
+	4. Procesas kartojamas (vėl lyginamas kiek bitų skiriasi 2 ir 3 hash'ai ir t.t.).
+	5. Skirtumai sumuojami.
+	6. Suma padalinama iš patikrintų porų skaičiaus.
+	7. Vidutinė pasikeitusių bitų dalis paverčiama į procentus.
+
+	Testo rezultatai:
+	```
+	Vidutinis bitų skirtumas tarp gretimų hash'ų: 49.9989% 
+	Max: 72.6525% (93 bitų skirtumas)
+	Min: 28.125% (36 bitų skirtumas)
+	```

@@ -5,6 +5,4 @@
 
 string janhash(string);
 
-uint32_t *janhash(string);
-
 #endif

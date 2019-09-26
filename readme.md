@@ -71,11 +71,16 @@ void HH(uint32_t &a, const uint32_t b, const uint32_t c, const uint32_t d, const
 
 ## Analizė
 ---
+Testų kodą galima rasti šiuose failuose:
+* Speed test - `master/speedetest.cpp`
+* Collision test - `master/collisiontest.cpp`
+* Overlap test - `overlap/overlaptest.cpp`
+
 1. Testiniai įvedimo failų pavyzdžiai:
-	1. Testas (Su skirtingi simboliai)
+	1. Testas (Su skirtingi simboliais)
 		* Failo `./duomenys/simb1.txt` hash'as: **e4e790a0965ef29885db2f3b0d4f3520**
 		* Failo `./duomenys/simb2.txt` hash'as: **0b1c306d065006a70c1d4ddaeb47f6dd**
-	2. Testas (Dideli failai, visiskai skiriasi)
+	2. Testas (Dideli failai, visiškai skiriasi)
 		* Failo `./duomenys/100k1.txt` hash'as: 
 		**07ced5a5858f6cc2d32b0bcda5e20014**
 		* Failo `./duomenys/100k2.txt` hash'as: 
@@ -88,9 +93,9 @@ void HH(uint32_t &a, const uint32_t b, const uint32_t c, const uint32_t d, const
 	4. Testas (Tuščias failas)
 		* Failo `./duomenys/empty.txt` hash'as:
 		**66d662c950f0f6f1904063b1416f6f5f**
-2. Kieviena eilutė teksto `konstitucija.txt` užhashinama tarp 0.0189-0.0319s.
+2. Kieviena eilutė teksto `konstitucija.txt` užhashinama tarp **0.0189-0.0319s**.
 
-3. Palyginus kiekvieną gautą hashą suhashinus `./duomenys/1mil.txt` failo eilutes, negauta nei viena sutampančių hashų pora.
+3. Palyginus kiekvieną gautą hashą suhashinus `./duomenys/1mil.txt` failo eilutes, *negauta nei viena sutampančių hashų pora*.
 
 4. Šiam analizės etapui sudarytas `./duomenys/1mil_2.txt` failas, kurio turinys aprašytas žemiau:
 	* 830,584‬ eilučių po 5 simbolius.
@@ -107,7 +112,7 @@ void HH(uint32_t &a, const uint32_t b, const uint32_t c, const uint32_t d, const
 	6. Suma padalinama iš patikrintų porų skaičiaus.
 	7. Vidutinė pasikeitusių bitų dalis paverčiama į procentus.
 
-	Testo rezultatai:
+	4 Testo rezultatai:
 	```
 	Vidutinis bitų skirtumas tarp gretimų hash'ų: 49.9989% 
 	Max: 72.6525% (93 bitų skirtumas)

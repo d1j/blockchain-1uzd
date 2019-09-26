@@ -1,6 +1,3 @@
-//33 - 126
-//1,060,321 eiluciu
-
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -13,32 +10,31 @@ using namespace std;
 
 void genDuom()
 {
-    ofstream output("./duomenys/1mil.txt");
+    //830,584‬ eilučių po 5 simbolius.
+    //94 poros skirsis 3 simboliais.
+    //~8800 porų skirsis 2 simboliais.
+    ofstream output("./duomenys/1mil_2.txt");
     for (int i = 33; i < 127; i++)
     {
         for (int j = 33; j < 127; j++)
         {
-            for (int k = 33; k < 63; k++)
+            for (int k = 33; k < 127; k++)
             {
-                for (int z = 63; z < 65; z++)
-                {
-                    for (int x = 65; x < 67; x++)
-                    {
-                        char a;
-                        string b = "";
-                        a = (char)i;
-                        b += a;
-                        a = (char)j;
-                        b += a;
-                        a = (char)k;
-                        b += a;
-                        a = (char)z;
-                        b += a;
-                        a = (char)x;
-                        b += a;
-                        output << b << endl;
-                    }
-                }
+                int z = 63;
+                int x = 64;
+                char a;
+                string b = "";
+                a = (char)i;
+                b += a;
+                a = (char)j;
+                b += a;
+                a = (char)k;
+                b += a;
+                a = (char)z;
+                b += a;
+                a = (char)x;
+                b += a;
+                output << b << endl;
             }
         }
     }
@@ -47,6 +43,8 @@ void genDuom()
 
 int main()
 {
+    genDuom();
+
     vector<string> duom;
     duom.reserve(1070000);
     string a;

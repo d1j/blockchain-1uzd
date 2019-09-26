@@ -57,8 +57,8 @@ void HH(uint32_t &a, const uint32_t b, const uint32_t c, const uint32_t d, const
 	a = (a + H(b, c, d) + k + 0x6ed9eba1);
 	a = rotl32(a, s);
 }
-
-string janhash(string data)
+//string janhash(string)
+uint32_t *janhash(string data)
 {
 
 	//Padding + appending dataLength
@@ -67,7 +67,7 @@ string janhash(string data)
 	data.append(64 - dataLength.length(), '\0');
 	data.append(dataLength);
 
-	uint32_t buffer[4] = {0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476};
+	uint32_t *buffer = new uint32_t[4]{0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476};
 
 	for (int i = 0; i < data.length() / 64; i++)
 	{
@@ -181,7 +181,7 @@ string janhash(string data)
 		buffer[2] += C;
 		buffer[3] += D;
 	}
-
+	/*
 	std::stringstream stream;
 	for (int i = 0; i < 4; i++)
 	{
@@ -189,4 +189,7 @@ string janhash(string data)
 	}
 	std::string result(stream.str());
 	return result;
+	*/
+
+	return buffer;
 }

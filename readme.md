@@ -87,7 +87,7 @@ Testų kodą galima rasti šiuose failuose:
 		**6b198dfed7a77ab66a2386a9423124b0**
 	3. Testas (Dideli failai, skiriasi 1 simboliu)
 		* Failo `./duomenys/100k_1simb_diff1.txt` hash'as:
-		**0f644201f5c3d5c97016113346e01c0b**
+		**d25b8ec29368fd32919b25dcc8ca6483**
 		* Failo `./duomenys/100k_1simb_diff2.txt` hash'as:
 		**16059c83d690557c9692bdc0d2a5b086**
 	4. Testas (Tuščias failas)

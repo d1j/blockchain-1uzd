@@ -4,13 +4,9 @@
 #include <streambuf>
 #include <fstream>
 
-string readFile()
+string readFile(string fileName)
 {
-
-    cout << "Iveskite failo pavadinima: ";
-    string fileName;
-    cin >> fileName;
-    std::ifstream input("./duomenys/" + fileName);
+    std::ifstream input(fileName);
     string data;
 
     input.seekg(0, std::ios::end);

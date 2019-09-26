@@ -58,7 +58,7 @@ void HH(uint32_t &a, const uint32_t b, const uint32_t c, const uint32_t d, const
 	a = rotl32(a, s);
 }
 
-string hash(string data)
+string janhash(string data)
 {
 
 	//Padding + appending dataLength

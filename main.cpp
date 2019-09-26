@@ -4,35 +4,27 @@
 
 #include <fstream>
 
-int main()
+int main(int argc, char *argv[])
 {
-     bool power = true;
-     while (power)
+     string data;
+     switch (argc)
      {
-          cout << "Pasirinkite:\n1. Skaityti duomenis is failo.\n2. Ivesti duomenis ranka.\n3. Iseiti." << endl;
-
-          int choice = intInput(1, 3);
-          string data;
-          switch (choice)
-          {
-          case 1:
-               data = readFile();
-               break;
-          case 2:
-               data = readInput();
-               break;
-          case 3:
-               power = false;
-               break;
-          default:
-               cout << "Ivestas netinkamas pasirinkimas.";
-          }
-
-          string result = hash(data);
-          cout << result << endl
+     case 1:
+          //read string
+          data = readInput();
+          cout << janhash(data) << endl
                << endl;
+          break;
+     case 2:
+          //read file
+          data = readFile(argv[1]);
+          cout << janhash(data) << endl
+               << endl;
+          break;
+     default:
+          //error
+          cout << "Error. Please use the tool as follows:\n1. janhash <fileName>\n2. janhash";
      }
-
      return 0;
 }
 

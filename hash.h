@@ -3,6 +3,6 @@
 
 #include "includes.h"
 
-string hash(string);
+string janhash(string);
 
 #endif

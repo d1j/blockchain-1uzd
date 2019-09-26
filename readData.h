@@ -3,7 +3,7 @@
 
 #include "includes.h"
 
-string readFile();
+string readFile(string);
 
 string readInput();
 

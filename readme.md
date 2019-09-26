@@ -82,14 +82,14 @@ Testų kodą galima rasti šiuose failuose:
 		* Failo `./duomenys/simb2.txt` hash'as: **0b1c306d065006a70c1d4ddaeb47f6dd**
 	2. Testas (Dideli failai, visiškai skiriasi)
 		* Failo `./duomenys/100k1.txt` hash'as: 
-		**07ced5a5858f6cc2d32b0bcda5e20014**
+		**16059c83d690557c9692bdc0d2a5b086**
 		* Failo `./duomenys/100k2.txt` hash'as: 
-		**fcae5908641e557489f68cddda211f18**
+		**6b198dfed7a77ab66a2386a9423124b0**
 	3. Testas (Dideli failai, skiriasi 1 simboliu)
 		* Failo `./duomenys/100k_1simb_diff1.txt` hash'as:
-		**68ba1eab9c696d3b8ab71ede169874c7**
+		**0f644201f5c3d5c97016113346e01c0b**
 		* Failo `./duomenys/100k_1simb_diff2.txt` hash'as:
-		**5a3a079f0a1673576a7e9378822b2a9e**
+		**16059c83d690557c9692bdc0d2a5b086**
 	4. Testas (Tuščias failas)
 		* Failo `./duomenys/empty.txt` hash'as:
 		**66d662c950f0f6f1904063b1416f6f5f**

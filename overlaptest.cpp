@@ -61,8 +61,10 @@ int main()
         }
         sum += comp;
         num_iter++;
+        delete[] prev;
         prev = curr;
     }
+    delete[] curr;
 
     double avg = (double)sum / (double)num_iter;
 
